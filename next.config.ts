@@ -1,6 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: "/api/v3/:path*",
+        destination: "https://api.buzfi.com/api/v3/:path*",
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

@@ -24,7 +24,7 @@ export async function fetchProducts(
   page: number = 1,
   limit: number = 20
 ): Promise<ProductsResponse> {
-  const url = `https://api.buzfi.com/api/v3/products?page=${page}&limit=${limit}`;
+  const url = `/api/v3/products?page=${page}&limit=${limit}`;
 
   const res = await fetch(url, {
     method: "GET",
@@ -94,7 +94,7 @@ export interface ProductDetail extends Product {
 }
 
 export async function fetchProductDetails(slug: string): Promise<ProductDetail> {
-  const url = `https://api.buzfi.com/api/v3/products/details?slug=${encodeURIComponent(slug)}`;
+  const url = `/api/v3/products/details?slug=${encodeURIComponent(slug)}`;
   const res = await fetch(url, {
     method: "GET",
     headers: { Accept: "application/json" },
